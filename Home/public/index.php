@@ -5,6 +5,9 @@
     require_once __DIR__.'/../../vendor/autoload.php';
 
 
+    use Monolog\Handler\FirePHPHandler;
+    use Monolog\Handler\StreamHandler;
+    use Monolog\Logger;
     use Phpcourse\Myproject\Classes\Controllers\AboutController;
     use Phpcourse\Myproject\Classes\Controllers\LoginController;
     use Phpcourse\Myproject\Classes\Controllers\ContactsController;
@@ -17,6 +20,7 @@
     use Phpcourse\Myproject\Classes\Interfaces\ControllerMethodName;
     use Phpcourse\Myproject\Classes\Router\Router;
     use Phpcourse\Myproject\Classes\StartApplication;
+
 
     $router = new Router();
 
@@ -36,6 +40,13 @@
     //$router->addRoute('/admin', AdminController::class, ControllerMethodName::METHOD_NAME);
 
     $app = new StartApplication($router, $_SERVER['REQUEST_URI'] ?? '/');
+require_once('C:\Users\User22\PhpstormProjects\php_hometask_Davydenko_K\vendor/autoload.php');
 
+
+$logger = new Logger('logger');
+$logger->pushHandler(new StreamHandler('C:/Users/User22/PhpstormProjects/php_hometask_Davydenko_K/vendor/test_app.log', Logger::DEBUG));
+$logger->pushHandler(new FirePHPHandler());
+$logger->error('Logger is now Ready');
     $app->run();
+
 

@@ -10,11 +10,13 @@
     },
     "authors": [
         {
-            "name": "Surkov.K",
-            "email": "kskrua@gmail.com"
+            "name": "Kate",
+            "email": "katedavydenko245@gmail.com"
         }
     ],
     "minimum-stability": "beta",
     "require": {
+        "latte/latte": "^3.0",
+        "monolog/monolog": "^3.3"
     }
 }
