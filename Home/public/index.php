@@ -22,7 +22,7 @@
     use Phpcourse\Myproject\Classes\StartApplication;
 
 
-    $router = new Router();
+$router = new Router();
 
     $router->addRoute('/', HomeController::class, ControllerMethodName::METHOD_NAME);
     $router->addRoute('/home', HomeController::class, ControllerMethodName::METHOD_NAME);
@@ -39,7 +39,7 @@
 
     //$router->addRoute('/admin', AdminController::class, ControllerMethodName::METHOD_NAME);
 
-    $app = new StartApplication($router, $_SERVER['REQUEST_URI'] ?? '/');
+    $app = StartApplication::getInstance($router, $_SERVER['REQUEST_URI'] ?? '/');
 require_once('C:\Users\User22\PhpstormProjects\php_hometask_Davydenko_K\vendor/autoload.php');
 
 

@@ -12,6 +12,7 @@ use Monolog\Logger;
 class StartApplication
 {
     use DebugTrait;
+    private static ?StartApplication $instance = null;
     private string $URI;
     // об'єкт класу Router буде записаний в цю змінну
     private object $routerData;
@@ -19,12 +20,19 @@ class StartApplication
     const CONTROLLER = 1;
     const ACTION = 2;
 
-    public function __construct(readonly Router $router, string $URI)
+    private function __construct(readonly Router $router, string $URI)
     {
         $this->URI = $URI;
         $this->routerData = $router;
         self::debugConsole('StartApplication');
     }
+    public static function getInstance($router, $URI) :StartApplication {
+        if (self::$instance == null) {
+            self::$instance = new StartApplication($router, $URI);
+        }
+        return self::$instance;
+    }
+
     public function run(): void{
         self::debugConsole('run()');
         $log = new Logger('name');
