@@ -37,14 +37,11 @@ $router = new Router();
     $router->addRoute('/login', LoginController::class, ControllerMethodName::METHOD_NAME);
     $router->addRoute('/register', RegisterController::class, ControllerMethodName::METHOD_NAME);
 
-    //$router->addRoute('/admin', AdminController::class, ControllerMethodName::METHOD_NAME);
+    $router->addRoute('/news', NewsController::class, ControllerMethodName::METHOD_NAME);
 
     $app = StartApplication::getInstance($router, $_SERVER['REQUEST_URI'] ?? '/');
-require_once('C:\Users\User22\PhpstormProjects\php_hometask_Davydenko_K\vendor/autoload.php');
-
-
 $logger = new Logger('logger');
-$logger->pushHandler(new StreamHandler('C:/Users/User22/PhpstormProjects/php_hometask_Davydenko_K/vendor/test_app.log', Logger::DEBUG));
+$logger->pushHandler(new StreamHandler('vendor/test_app.log', Logger::DEBUG));
 $logger->pushHandler(new FirePHPHandler());
 $logger->error('Logger is now Ready');
     $app->run();

@@ -11,7 +11,7 @@ class AboutController implements ControllerMethodName
 { use DebugTrait;
 
     public function index() : void{
-        $data = ['title' => 'About', 'content' => 'main_pages/about'];
+        $data = ['title' => 'About', 'content' => 'pages/about'];
         self::debugConsole('AboutController');
         new Rendering($data);
     }

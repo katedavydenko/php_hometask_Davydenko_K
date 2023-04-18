@@ -11,7 +11,7 @@ class HomeController implements ControllerMethodName
 {
     use DebugTrait;
     public function index() : void{
-        $data = ['title' => 'Home', 'content' => 'main_pages/home'];
+        $data = ['title' => 'Home', 'content' => 'pages/home'];
         new Rendering($data);
         self::debugConsole('HomeController');
     }
